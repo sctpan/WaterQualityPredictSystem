@@ -1,0 +1,142 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>水质预测平台</title>
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- css -->   
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/113787/19892/5a73f7dcf629d9178c35c5a3.css' rel='stylesheet' type='text/css' />
+    <link href="{% static 'css/en_font_3.css' %}" rel='stylesheet' type='text/css'>
+     <link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.13.min.css"
+    rel="stylesheet" type="text/css">
+    <link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.13.min.css"
+    rel="stylesheet" type="text/css">
+    <link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.13.min.css"
+    rel="stylesheet" type="text/css">
+    <!-- js -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script> 
+    <script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.13.min.js"></script>
+    <script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.13.min.js"></script>
+    <script src="http://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.13.min.js"></script>
+     {% for s in script %}
+     {{ s|safe }}
+     {% endfor %}
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'WQPS:index' %}">Water Quality Predict System</a>
+    </div>
+    <div class="login">
+        <ul class="nav navbar-nav navbar-right">   
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'WQPS:manage' %}">{{ user.username }}</a></li>     
+            <li><a href="{% url 'WQPS:user_logout' %}">[注销]</a></li>
+            {% else %}
+            <li></li>     
+            <li><a data-toggle="modal" data-target="#log">管理员登录</a></li>
+            {% endif %}
+                 
+        </ul> 
+    </div>  
+</nav>
+<div class="jumbotron">
+  <h2 class="cssffa297ecb1bc7b">模 型 更 新 结 果</h2>
+</div>
+
+<div class="container"> 
+   <div class="col-md-4">
+   <p class="cssffa297ecb1bc7b model_index">溶 解 氧</p>
+    <table class="table table-striped model_table">
+      <tr>
+        <th>测试集样本数</th>
+        <td>{{ num }}</td>
+      </tr>
+      <tr>
+        <th>RMSE</th>
+        <td>{{ rmse.0 }}</td>
+      </tr>
+      <tr>
+        <th>准确率</th>
+        <td>{{ acy.0 }}%</td>
+      </tr>
+      <tr>
+        <th>相关性</th>
+        <td>{{ cor.0 }}</td>
+      </tr>
+   </table>
+   </div>
+   <div class="col-md-8">
+   {{ div.0|safe }}
+   </div>
+ </div>
+
+ <div class="container"> 
+   <div class="col-md-4">
+   <p class="cssffa297ecb1bc7b model_index">氨 氮</p>
+    <table class="table table-striped model_table">
+      <tr>
+        <th>测试集样本数</th>
+        <td>{{ num }}</td>
+      </tr>
+      <tr>
+        <th>RMSE</th>
+        <td>{{ rmse.1 }}</td>
+      </tr>
+      <tr>
+        <th>准确率</th>
+        <td>{{ acy.1 }}%</td>
+      </tr>
+      <tr>
+        <th>相关性</th>
+        <td>{{ cor.1 }}</td>
+      </tr>
+   </table>
+   </div>
+   <div class="col-md-8">
+   {{ div.1|safe }}
+   </div>
+ </div>
+
+<div class="container"> 
+   <div class="col-md-4">
+   <p class="model_index_ph">P H</p>
+    <table class="table table-striped model_table">
+      <tr>
+        <th>测试集样本数</th>
+        <td>{{ num }}</td>
+      </tr>
+      <tr>
+        <th>RMSE</th>
+        <td>{{ rmse.2 }}</td>
+      </tr>
+      <tr>
+        <th>准确率</th>
+        <td>{{ acy.2 }}%</td>
+      </tr>
+      <tr>
+        <th>相关性</th>
+        <td>{{ cor.2 }}</td>
+      </tr>
+   </table>
+   </div>
+   <div class="col-md-8">
+   {{ div.2|safe }}
+   </div>
+ </div>
+<footer class="footer">
+      <div class="container">
+        <p class="text-muted">&copy;南京邮电大学计算机学院、软件学院、网络空间安全学院</p>
+      </div>
+</footer>
+</body>
+</html>

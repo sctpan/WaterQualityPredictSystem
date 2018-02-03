@@ -1,0 +1,65 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>平台管理</title>
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- css -->   
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="{% static 'css/en_font_1.css' %}" rel='stylesheet' type='text/css'>
+    <link href="{% static 'css/en_font_2.css' %}" rel='stylesheet' type='text/css'>
+    <link href='http://cdn.webfont.youziku.com/webfonts/nomal/113787/19892/5a73f7dcf629d9178c35c5a3.css' rel='stylesheet' type='text/css' />
+
+    <!-- js -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script> 
+    <script type="text/javascript">
+    function startcal(){
+      window.location.href="{% url 'WQPS:model' %}"
+    }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'WQPS:index' %}">Water Quality Predict System</a>
+    </div>
+    <div class="login">
+        <ul class="nav navbar-nav navbar-right">   
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'WQPS:manage' %}">{{ user.username }}</a></li>    
+            <li><a href="{% url 'WQPS:user_logout' %}">[注销]</a></li>
+            {% else %}
+            <li></li>     
+            <li><a data-toggle="modal" data-target="#log">管理员登录</a></li>
+            {% endif %}
+                 
+        </ul> 
+    </div>  
+</nav>
+
+<div class="jumbotron">
+  <h2 class="cssffa297ecb1bc7b">系 统 管 理</h2>
+  <h2 class="head_en">System Management</h2>
+  <p ><a  onclick="startcal()" data-toggle="modal" data-target="#train" type="button" class="btn btn-success btn-lg manageButton">模 型 更 新</a>
+  <a  href="{% url 'WQPS:admin' %}" type="button" class="btn btn-success btn-lg manageButton">数 据 管 理</a></p> 
+</div>
+
+<div class="modal fade" id="train" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <p>模型正在训练中</p>
+            <p>请耐心等待，不要离开该页面</p>
+        </div>
+    </div>
+</div> 
+<footer class="footer">
+      <div class="container">
+        <p class="text-muted">&copy;南京邮电大学计算机学院、软件学院、网络空间安全学院</p>
+      </div>
+</footer>
+</body>
+</html>
