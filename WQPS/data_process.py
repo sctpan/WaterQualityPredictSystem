@@ -108,10 +108,10 @@ def generate_sets(data,obj,loop=3):
 def save_mean_and_std(data):
     scaler = preprocessing.StandardScaler().fit(data)
     mean_and_std = np.vstack((scaler.mean_,np.sqrt(scaler.var_)))
-    m,d = time.strftime('%m-%d',time.localtime(time.time())).split('-')  
-    date =  m + '_' + d + '_'
-    write_dir_path = os.path.join(settings.BASE_DIR, 'data', date)
-    filename = write_dir_path + 'mean_and_std.csv'
+    #m,d = time.strftime('%m-%d',time.localtime(time.time())).split('-')  
+    #date =  m + '_' + d + '_'
+    write_dir_path = os.path.join(settings.BASE_DIR, 'data')
+    filename = os.path.join(write_dir_path,'mean_and_std.csv')
     np.savetxt(filename,mean_and_std,delimiter=',')
 
 def process():

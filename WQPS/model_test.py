@@ -50,8 +50,8 @@ def plot(pred,y):
 
 def restore(data,obj):
     obj_lst = {'month':0,'DO':1,'NH3N':2,'PH':3}
-    m,d = time.strftime('%m-%d',time.localtime(time.time())).split('-')  
-    dataname =  m + '_' + d + '_' + 'mean_and_std.csv'       
+    #m,d = time.strftime('%m-%d',time.localtime(time.time())).split('-')  
+    dataname =  'mean_and_std.csv'       
     path = os.path.join(settings.BASE_DIR, 'data', dataname)
     mean_and_std = load_data(path)
     mean = mean_and_std[0][obj_lst[obj]]
