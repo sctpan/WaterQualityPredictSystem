@@ -104,7 +104,6 @@ def test(obj,method):
     res = {'rmse':_rmse,'cor':_cor,'acy':_acy,'dic':dic,'num':len(y)}
     return res
 
-
 def return_result():
     update_model()
     DO = test('DO','SVM')
