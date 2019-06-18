@@ -14,16 +14,16 @@
 
 ### 主页
 
-![主页](/Users/sctpan/Github/WaterQualityPredictSystem/pics/主页.png)
+![主页](./pics/主页.png)
 
 ### 管理员界面
 
-![管理员界面](/Users/sctpan/Github/WaterQualityPredictSystem/pics/管理员界面.png)
+![管理员界面](./pics/管理员界面.png)
 
 ### 模型训练界面
 
-![模型训练界面](/Users/sctpan/Github/WaterQualityPredictSystem/pics/模型更新界面.png)
+![模型训练界面](./pics/模型更新界面.png)
 
 ### 预测界面
 
-![预测界面](/Users/sctpan/Github/WaterQualityPredictSystem/pics/预测界面.png)
+![预测界面](./pics/预测界面.png)
