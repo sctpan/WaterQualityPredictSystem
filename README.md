@@ -27,3 +27,31 @@
 ### 预测界面
 
 ![预测界面](./pics/预测界面.png)
+
+## 运行方式
+
++ 将仓库克隆到本地
+
+  ```c
+  git clone https://github.com/sctpan/WaterQualityPredictSystem.git
+  ```
+
++ 进入manage.py同级目录，安装依赖
+
+  ```c
+  pip install -r requirements.txt
+  ```
+
++ 移植数据库
+
+  ```c
+  python manage.py migrate
+  ```
+
++ 运行程序
+
+  ```c
+  python manage.py runserver
+  ```
+
++ 使用浏览器打开http://127.0.0.1:8000/
