@@ -1,6 +1,5 @@
 beautifulsoup4==4.6.0
 bokeh==0.12.13
-certifi==2018.1.18
 chardet==3.0.4
 ConfigArgParse==0.12.0
 coursera-dl==0.9.0
